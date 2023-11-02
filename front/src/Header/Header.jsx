@@ -1,14 +1,7 @@
 import { Link } from "react-router-dom";
-
-function Header({ isLoggedIn, username }) {
-  const handleDashboardClick = (e) => {
-    if (!isLoggedIn) {
-      e.preventDefault(); // Prevent the default action (navigation)
-      alert("Please log in first.");
-    }
-  };
-
-
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+function Header() {
   
   return (
     <>
@@ -39,15 +32,11 @@ function Header({ isLoggedIn, username }) {
                 <Link
                   to="/dashboard"
                   className="nav-link active"
-                  onClick={handleDashboardClick}
                 >
                   Dashboard
                 </Link>
               </li>
             </ul>
-            {isLoggedIn && (
-              <span className="navbar-text">Welcome, {username || "User"}</span>
-            )}
           </div>
         </div>
       </nav>

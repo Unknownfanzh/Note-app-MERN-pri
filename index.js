@@ -18,13 +18,7 @@ const PORT = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const corsOptions = {
-  origin: "https://note-app-deploy.onrender.com",
-  methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "DELETE"],
-  credentials: true,
-};
 
-app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(
   session({
@@ -38,7 +32,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, "../frontend", "dist")));
+app.use(express.static(path.join(__dirname, "front", "dist")));
 app.use('/api', router); 
 
 (async () => {

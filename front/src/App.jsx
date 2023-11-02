@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useHistory } from "react";
-import { BrowserRouter as Router, Route, Link, Routes, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import Header from "./Header/Header";
 import MainContent from "./MainContent";
 import Footer from "./Footer/Footer";
@@ -31,16 +37,17 @@ function App() {
     checkAuthenticated();
   }, []);
 
-
-
   return (
     <Router>
-      <Header
-        isLoggedIn={isAuthenticated}
-        username={currentUser?.username}
-      />
-      <div className="App">
-        <MainContent />
+      <Header />
+
+      <div className="container">
+        <h1 className="app-title">Note App</h1>
+        <h2 className="app-description">take down your notes!</h2>
+
+        <div className="App">
+          <MainContent />
+        </div>
       </div>
       <Footer />
     </Router>
